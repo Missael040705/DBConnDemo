@@ -7,10 +7,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.example.dbconndemo.dashboard.InventoryDashboard;
 import org.example.dbconndemo.database.CategoryDao;
 import org.example.dbconndemo.database.MySQLConnection;
 import org.example.dbconndemo.excel_report.*;
@@ -21,7 +18,7 @@ import org.example.dbconndemo.database.ProductDao;
 
 import java.awt.*;
 import java.io.File;
-import java.io.FileOutputStream;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -90,8 +87,6 @@ public class HelloController implements Initializable {
         } else {
             productsOB = pdao.findByCategories(selectCategory);
         }
-
-
 
         String categoryDest = "results/excel/" + selectCategory + ".xlsx";
         File file = new File(categoryDest);
@@ -242,12 +237,24 @@ public class HelloController implements Initializable {
         }
 
 
-        for(Map.Entry<String, Integer> entry: categoriesT.entrySet()){
+        for (Map.Entry<String, Integer> entry : categoriesT.entrySet()) {
             System.out.println("Categoría: " + entry.getKey() + ", Total: " + entry.getValue());
         }
         //ProductList = FXCollections.observableArrayList(pdao.findAll());
         ProductList = FXCollections.observableArrayList(productsOB);
         tblProducts.setItems(FXCollections.observableList(ProductList));
+    }
+
+    @FXML
+    protected void onDashClick() {
+
+        new InventoryDashboard().showDashboard();
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        initForm();
     }
 
     private void initForm() {
@@ -256,40 +263,5 @@ public class HelloController implements Initializable {
         cbCategory.setItems(FXCollections.observableArrayList(CategoryList));
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        initForm();
-    }
 
-    /*
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-
-        String query = "select * from products;";
-        try {
-            Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery(query);
-            while (rs.next())
-            {
-
-                System.out.println("ID: " + rs.getInt("id_product"));
-                System.out.println("NAME: " + rs.getString("name"));
-                //System.out.println("COLOR: " + rs.getString("color"));
-                //System.out.println("IMAGE: " + rs.getString("image"));
-                //System.out.println("DESC: " + rs.getString("description"));
-                System.out.println("PRICE: " + rs.getDouble("price"));
-                System.out.println("QUANTITY: " + rs.getInt("quantity"));
-                System.out.println("CATEGORY ID: " + rs.getInt("category_id"));
-
-                ProductList.add(new Product(rs.getInt("id_product"), rs.getString("name"), rs.getDouble("price"), rs.getInt("category_id")));
-            }
-
-            tblProducts.setItems(FXCollections.observableList(ProductList));
-            welcomeText.setText("Retrieving data...");
-        } catch (SQLException e) {
-            welcomeText.setText(e.getMessage());
-            throw new RuntimeException(e);
-        }
-
-    }*/
 }

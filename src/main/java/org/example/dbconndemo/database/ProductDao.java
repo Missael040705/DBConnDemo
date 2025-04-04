@@ -21,8 +21,7 @@ public class ProductDao extends MySQLConnection implements Dao<Product> {
             PreparedStatement statement = conn.prepareStatement(query);
             statement.setLong(1, id_product);
             ResultSet rs = statement.executeQuery();
-            if ( rs.next() )
-            {
+            if (rs.next()) {
                 Product product = new Product();
                 product.setId(rs.getInt("id_product"));
                 product.setName(rs.getString("name"));
@@ -52,8 +51,7 @@ public class ProductDao extends MySQLConnection implements Dao<Product> {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(query);
 
-            while (rs.next())
-            {
+            while (rs.next()) {
                 Product p = new Product();
                 p.setId(rs.getInt("id_product"));
                 p.setName(rs.getString("name"));
@@ -84,8 +82,7 @@ public class ProductDao extends MySQLConnection implements Dao<Product> {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(query);
 
-            while (rs.next())
-            {
+            while (rs.next()) {
                 Product p = new Product();
                 p.setId(rs.getInt("id_product"));
                 p.setName(rs.getString("name"));
@@ -117,8 +114,7 @@ public class ProductDao extends MySQLConnection implements Dao<Product> {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(query);
 
-            while (rs.next())
-            {
+            while (rs.next()) {
                 results.put(rs.getString("category"), rs.getInt("total"));
             }
 
@@ -128,8 +124,29 @@ public class ProductDao extends MySQLConnection implements Dao<Product> {
         return results;
     }
 
-    private Category getCategory(int category_id)
-    {
+    public Map<String, Double> PercentageProductsByCategory() {
+
+        Map<String, Double> results = new HashMap<String, Double>();
+        String query = "select c.name as category, round((count(p.id_product)/(select count(*) from products))*100, 2) as percentage \n" +
+                "from products p\n" +
+                "join categories c on p.category_id = c.id_category\n" +
+                "group by 1\n" +
+                "order by 2 desc";
+        try {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+
+            while (rs.next()) {
+                results.put(rs.getString("category"), rs.getDouble("percentage"));
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return results;
+    }
+
+    private Category getCategory(int category_id) {
         String query = "select * from categories where id_category = " + category_id;
         try {
             Statement statement = conn.createStatement();
@@ -146,12 +163,13 @@ public class ProductDao extends MySQLConnection implements Dao<Product> {
         }
 
     }
+
     @Override
     public boolean save(Product product) {
 
         String query = "insert into products " +
-                        " (name, description, price, quantity, color, image, category_id)" +
-                        " values (?, ?, ?, ?, ?, ?, ?)";
+                " (name, description, price, quantity, color, image, category_id)" +
+                " values (?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, product.getName());
@@ -170,6 +188,7 @@ public class ProductDao extends MySQLConnection implements Dao<Product> {
         return false;
 
     }
+
     @Override
     public boolean update(Product product) {
         String query = "update products set name=?, description=?, color=?, price=?, quantity=?, image=?, category_id=?  where id = ?";
@@ -191,6 +210,7 @@ public class ProductDao extends MySQLConnection implements Dao<Product> {
         }
         return false;
     }
+
     public boolean updateName(String name, int productId) {
         String query = "update products set name=?  where id_product = ?";
         try {

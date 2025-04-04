@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a64a2c2-c5f8-4c95-ba21-69e156cf1247" name="Changes" comment="" />
+    <list default="true" id="1a64a2c2-c5f8-4c95-ba21-69e156cf1247" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dbconndemo/dashboard/InventoryDashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dbconndemo/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dbconndemo/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dbconndemo/database/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dbconndemo/database/ProductDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/dbconndemo/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/dbconndemo/hello-view.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,6 +53,28 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Missael040705&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Missael040705/DBConnDemo.git&quot;,
+    &quot;accountId&quot;: &quot;5111232d-b16e-45db-b48f-42c0e75f3ccb&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -58,6 +87,8 @@
   &quot;keyToString&quot;: {
     &quot;Gradle.DBConnDemo [run].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/jhony/Documents/TEC/SEM 4/MN/P2/Programa/DBConnDemo/src/main/java/org/example/dbconndemo&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -150,6 +181,8 @@
       <workItem from="1743477287813" duration="8960000" />
       <workItem from="1743520314637" duration="5663000" />
       <workItem from="1743647342350" duration="8985000" />
+      <workItem from="1743693039327" duration="6158000" />
+      <workItem from="1743733508922" duration="1740000" />
     </task>
     <servers />
   </component>
