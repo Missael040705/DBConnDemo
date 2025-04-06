@@ -7,8 +7,7 @@ import java.util.List;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.example.dbconndemo.models.Book;
 
 /**
  * A nice program that writes data to an Excel file in OOP way. 

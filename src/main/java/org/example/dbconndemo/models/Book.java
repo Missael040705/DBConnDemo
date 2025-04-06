@@ -1,4 +1,4 @@
-package org.example.dbconndemo.excel_report;
+package org.example.dbconndemo.models;
 
 /**
  * This class represents a book.

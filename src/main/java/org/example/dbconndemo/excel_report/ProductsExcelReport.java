@@ -175,7 +175,6 @@ public class ProductsExcelReport {
 
         for (Map.Entry<String, Integer> entry : categoriesT.entrySet()) {
             XSSFRow newRowC = sheetTotal.createRow(row_numberC++);
-//            System.out.println("Categoría: " + entry.getKey() + ", Total: " + entry.getValue());
 
             XSSFCell cell1 = newRowC.createCell(0);
             cell1.setCellValue(entry.getKey());
@@ -189,14 +188,6 @@ public class ProductsExcelReport {
 
         sheetTotal.autoSizeColumn(0);
         sheetTotal.autoSizeColumn(1);
-
-//        try (FileOutputStream outputStream = new FileOutputStream(filename)) {
-//            workbook.write(outputStream);
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
 
     }
 }

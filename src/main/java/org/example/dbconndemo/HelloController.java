@@ -12,6 +12,7 @@ import org.example.dbconndemo.database.CategoryDao;
 import org.example.dbconndemo.database.MySQLConnection;
 import org.example.dbconndemo.excel_report.*;
 import org.example.dbconndemo.itext_reports.*;
+import org.example.dbconndemo.models.Book;
 import org.example.dbconndemo.models.Category;
 import org.example.dbconndemo.models.Product;
 import org.example.dbconndemo.database.ProductDao;

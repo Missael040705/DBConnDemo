@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a64a2c2-c5f8-4c95-ba21-69e156cf1247" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dbconndemo/dashboard/InventoryDashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dbconndemo/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dbconndemo/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dbconndemo/database/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dbconndemo/database/ProductDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/dbconndemo/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/dbconndemo/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dbconndemo/dashboard/InventoryDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dbconndemo/dashboard/InventoryDashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dbconndemo/excel_report/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dbconndemo/models/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dbconndemo/excel_report/FlexibleExcelWriterExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dbconndemo/excel_report/FlexibleExcelWriterExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dbconndemo/excel_report/FormattedExcelWriterExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dbconndemo/excel_report/FormattedExcelWriterExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dbconndemo/excel_report/NiceExcelWriterExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dbconndemo/excel_report/NiceExcelWriterExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dbconndemo/excel_report/ProductsExcelReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dbconndemo/excel_report/ProductsExcelReport.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,6 +185,7 @@
       <workItem from="1743647342350" duration="8985000" />
       <workItem from="1743693039327" duration="6158000" />
       <workItem from="1743733508922" duration="1740000" />
+      <workItem from="1743909530078" duration="5316000" />
     </task>
     <servers />
   </component>

@@ -25,6 +25,8 @@ public class InventoryDashboard {
         grid.add(generateScatterChart(), 1, 1);
         grid.add(generateBarChart(), 2, 1);
         grid.add(generatePercentagePC(), 0, 2);
+        grid.add(generateProductsBC(), 1, 2);
+        grid.add(generateProductsLC(), 2, 2);
 
         Stage stage = new Stage();
         stage.setTitle("Inventory Dashboard");
@@ -37,19 +39,6 @@ public class InventoryDashboard {
         stage.setMaximized(true);
         stage.show();
 
-    }
-
-    private PieChart generatePercentagePC() {
-
-        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
-
-        for (Map.Entry<String, Double> entry : pdao.PercentageProductsByCategory().entrySet()) {
-            pieChartData.add(new PieChart.Data(entry.getKey(), entry.getValue()));
-        }
-        final PieChart chart = new PieChart(pieChartData);
-        chart.setTitle("Percentage Products");
-
-        return chart;
     }
 
     private PieChart generatePC() {
@@ -94,6 +83,8 @@ public class InventoryDashboard {
         series.getData().add(new XYChart.Data(11, 29));
         series.getData().add(new XYChart.Data(12, 25));
 
+        lineChart.getData().add(series);
+
         return lineChart;
     }
 
@@ -131,6 +122,8 @@ public class InventoryDashboard {
         seriesMay.getData().add(new XYChart.Data(24, 23));
         seriesMay.getData().add(new XYChart.Data(27, 26));
         seriesMay.getData().add(new XYChart.Data(31, 26));
+
+        ac.getData().addAll(seriesApril, seriesMay);
 
         return ac;
 
@@ -253,9 +246,69 @@ public class InventoryDashboard {
         series3.getData().add(new XYChart.Data(italy, 17557.31));
         series3.getData().add(new XYChart.Data(usa, 92633.68));
 
-        Scene scene = new Scene(bc, 800, 600);
         bc.getData().addAll(series1, series2, series3);
         return bc;
+    }
+
+    private PieChart generatePercentagePC() {
+
+        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
+
+        for (Map.Entry<String, Double> entry : pdao.PercentageProductsByCategory().entrySet()) {
+            pieChartData.add(new PieChart.Data(entry.getKey() + " " + entry.getValue() + "%", entry.getValue()));
+        }
+        final PieChart chart = new PieChart(pieChartData);
+        chart.setTitle("Percentage Products");
+
+        return chart;
+    }
+
+    private BarChart generateProductsBC() {
+
+        final CategoryAxis xAxis = new CategoryAxis();
+        final NumberAxis yAxis = new NumberAxis();
+        final BarChart<String, Number> bc =
+                new BarChart<String, Number>(xAxis, yAxis);
+        bc.setTitle("Products Summary");
+        xAxis.setLabel("Products");
+        yAxis.setLabel("Quantity");
+
+        XYChart.Series series1 = new XYChart.Series();
+
+        series1.setName("Total Products for Each Category");
+        for (Map.Entry<String, Integer> entry : pdao.totalProductsByCategory().entrySet()) {
+            series1.getData().add(new XYChart.Data(entry.getKey() + " " + entry.getValue(), entry.getValue()));
+        }
+
+        bc.getData().addAll(series1);
+        return bc;
+    }
+
+    private LineChart generateProductsLC() {
+        final NumberAxis xAxis = new NumberAxis();
+        final NumberAxis yAxis = new NumberAxis();
+
+        final CategoryAxis sXAxis = new CategoryAxis();
+
+        xAxis.setLabel("Products");
+        //creating the chart
+
+        final LineChart<String, Number> lineChart =
+                new LineChart<String, Number>(sXAxis, yAxis);
+
+        lineChart.setTitle("Products's Lineal Summary");
+        //defining a series
+        XYChart.Series series = new XYChart.Series();
+        series.setName("Total Products");
+
+
+        for (Map.Entry<String, Integer> entry : pdao.totalProductsByCategory().entrySet()) {
+            series.getData().add(new XYChart.Data(entry.getKey() + " " + entry.getValue(), entry.getValue()));
+        }
+
+        lineChart.getData().add(series);
+
+        return lineChart;
     }
 
 }
